@@ -4,10 +4,12 @@
  * or to a Render URL when window.API_BASE is set / ?api= is provided.
  */
 const params = new URLSearchParams(window.location.search);
+const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+// Same-origin on Render/production. Only fall back to local API during local static previews.
 const API_BASE = (
   params.get("api") ||
   window.API_BASE ||
-  (window.location.port === "3000" ? "" : "http://localhost:3000")
+  (isLocalHost && window.location.port !== "3000" ? "http://localhost:3000" : "")
 ).replace(/\/$/, "");
 
 const menuGrid = document.querySelector("#menu-grid");
