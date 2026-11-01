@@ -10,8 +10,8 @@ A small companion frontend is included for Netlify (or local static preview).
 * Student Name: Tushant Kaura
 * Banner Number (B00): B01017760
 * CSID: kaura
-* Lab Render URL (backend): [PASTE YOUR RENDER URL HERE, e.g. https://harbor-roast-api.onrender.com]
-* Lab Netlify URL (frontend): [PASTE YOUR NETLIFY URL HERE, e.g. https://harbor-roast.netlify.app]
+* Lab Render URL (backend): https://harbor-roast-lab3.onrender.com
+* Lab Netlify URL (frontend): https://harbor-roast-lab3.onrender.com/index.html (frontend served from the same Render service)
 * Lab GitLab URL: https://git.cs.dal.ca/kaura/csci3172
 * Local API: http://localhost:3000
 
