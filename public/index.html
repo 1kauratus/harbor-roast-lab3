@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse and manage the Harbor Roast specialty coffee menu through a live REST API.">
+  <title>Harbor Roast | Specialty Menu</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Harbor Roast</a>
+      <p class="tagline">Specialty drinks & bakery, served by a REST API.</p>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">CSCI 3172 · LAB 3</p>
+      <h1 id="hero-title">A small coffee shop menu, built as an Express API.</h1>
+      <p>
+        This page talks to a Node.js backend with custom logging middleware,
+        payload validation, and centralized error handling.
+      </p>
+      <p class="api-pill" id="api-status">Checking API…</p>
+    </section>
+
+    <section class="panel" aria-labelledby="menu-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="menu-heading">Current menu</h2>
+          <p id="menu-status" role="status" aria-live="polite">Loading items…</p>
+        </div>
+        <button type="button" id="refresh-button" class="ghost-button">Refresh</button>
+      </div>
+      <div id="menu-grid" class="menu-grid"></div>
+      <p id="empty-state" class="empty" hidden>No menu items yet. Add one below.</p>
+    </section>
+
+    <section class="panel form-panel" aria-labelledby="add-heading">
+      <h2 id="add-heading">Add a menu item</h2>
+      <p>Posts JSON to <code>POST /api/items</code>. Invalid payloads return 400.</p>
+
+      <form id="add-form" class="add-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="Cedar Flat White">
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="Espresso">Espresso</option>
+            <option value="Brewed">Brewed</option>
+            <option value="Bakery">Bakery</option>
+            <option value="Seasonal">Seasonal</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="price">Price</label>
+          <input id="price" name="price" type="number" min="0" step="0.01" required placeholder="4.50">
+        </div>
+        <div class="field">
+          <label for="caffeineMg">Caffeine (mg)</label>
+          <input id="caffeineMg" name="caffeineMg" type="number" min="0" step="1" required placeholder="120">
+        </div>
+        <div class="field checkbox-field">
+          <label for="available">
+            <input id="available" name="available" type="checkbox" checked>
+            Available today
+          </label>
+        </div>
+        <div class="field full">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3" placeholder="Short tasting notes"></textarea>
+        </div>
+        <div class="actions full">
+          <button type="submit" class="primary-button">Create item</button>
+        </div>
+      </form>
+      <p id="form-feedback" class="feedback" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Harbor Roast · CSCI 3172 Lab 3 · Express REST API demo</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "harbor-roast-lab3",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CSCI 3172 Lab 3 - Harbor Roast REST API with Express middleware",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
